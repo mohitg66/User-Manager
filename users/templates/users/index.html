@@ -18,12 +18,20 @@
         title="Password must contain at least 8 characters, including a letter, a number, and a special character (@$!%*#?&)" 
         class="w-full rounded-lg border bg-transparent px-3 py-2 text-gray-500 shadow-sm outline-none focus:border-blue-600" 
         placeholder="Password" />
-        <select name="gender" required class="w-full rounded-lg border bg-transparent px-4 py-2 text-gray-500 shadow-sm outline-none focus:border-blue-600">
-          <option class="text-gray-400" value="" disabled selected>Select Gender</option>
-          <option value="M">Male</option>
-          <option value="F">Female</option>
-          <option value="O">Other</option>
-        </select>
+      <div class="flex flex-row ml-1 space-x-3">
+        <label for="gender-male" class="flex items-center">
+            <input type="radio" id="gender-male" name="gender" value="M" required class="rounded-lg border bg-transparent px-4 py-2 text-gray-500 shadow-sm outline-none focus:border-blue-600" />
+            <span class="ml-2">Male</span>
+        </label>
+        <label for="gender-female" class="flex items-center">
+            <input type="radio" id="gender-female" name="gender" value="F" required class="rounded-lg border bg-transparent px-4 py-2 text-gray-500 shadow-sm outline-none focus:border-blue-600" />
+            <span class="ml-2">Female</span>
+        </label>
+        <label for="gender-other" class="flex items-center">
+            <input type="radio" id="gender-other" name="gender" value="O" required class="rounded-lg border bg-transparent px-4 py-2 text-gray-500 shadow-sm outline-none focus:border-blue-600" />
+            <span class="ml-2">Other</span>
+        </label>
+      </div>
         <select name="skills" multiple required class="w-full rounded-lg border bg-transparent px-4 py-2 text-gray-500 shadow-sm outline-none focus:border-blue-600">
           <option class="text-gray-400" value="" disabled>Select Skills</option>
           <option value="react">React</option>
