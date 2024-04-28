@@ -1,0 +1,57 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>User Manager</title>
+        {% comment %} <link rel="stylesheet" href="{% static 'src/styles.css' %}"> {% endcomment %}
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body class="h-screen">
+
+        <nav class="sticky top-0 bg-white border-b shadow py-1.5">
+            <div class="flex justify-between items-center py-3 px-4 max-w-screen-xl mx-auto md:px-8">
+                <ul class="flex-1 justify-between mt-12 md:flex md:mt-0 hidden">
+                    <div class="items-center space-y-5 md:flex md:space-x-6 md:space-y-0 md:ml-12">
+                        <li class="text-gray-600 hover:text-gray-900">
+                            <a href="{% url 'users:index' %}">Home</a>
+                        </li>
+                        <li class="text-gray-600 hover:text-gray-900">
+                            <a href="#">About Us</a>
+                        </li>
+
+                    </div>
+                    {% if user.is_authenticated %}
+                        <li class="flex gap-4 py-5 md:py-0">
+                            <a href="{% url 'users:logout' %}" class="my-auto py-1 px-5 rounded-lg font-medium border text-gray-600 text-center bg-white hover:bg-gray-100 active:bg-gray-200 duration-150 block md:py-2 md:inline">Logout</a>
+                        </li>
+                    {% else %}
+                        <li class="flex gap-4 py-5 md:py-0">
+                            <a href="{% url 'users:login' %}" class="my-auto py-1 px-5 rounded-lg font-medium border border-blue-600 text-blue-600 text-center bg-white hover:bg-gray-100 active:bg-bg-white duration-150 block md:py-2 md:inline">Log In</a>
+                            <a href="{% url 'users:index' %}" class="my-auto py-1 px-5 rounded-lg font-medium text-white text-center bg-blue-600 hover:bg-blue-500 active:bg-blue-700 duration-150 block md:py-2 md:inline">Register</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </nav>
+
+        {% block content %}
+        {% endblock %}
+
+        <footer class="bg-gray-100 bottom-0 fixed w-full">
+            <div class="mx-auto max-w-screen-xl px-4 py-6 sm:px-6 lg:px-8">
+              <div class="sm:flex sm:items-center sm:justify-between">
+                <div class="flex justify-center items-center space-x-6">
+                    <a href="{% url 'users:index' %}" class="text-gray-600 hover:text-gray-900">Home</a>
+                    <a href="#" class="text-gray-600 center hover:text-gray-900">About Us</a>
+                </div>
+
+                <p class="mt-4 text-center text-sm text-gray-600 lg:mt-0 lg:text-right">
+                  Copyright &copy; 2024. All rights reserved.
+                </p>
+              </div>
+            </div>
+        </footer>
+
+    </body>
+</html>

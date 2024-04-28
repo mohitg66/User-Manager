@@ -1,0 +1,40 @@
+{% extends 'users/layout.html' %}
+
+{% block content %}
+  <main class="flex w-full my-28 flex-col items-center justify-center px-4">
+    <div class="w-full max-w-sm text-gray-600">
+      <div class="text-center">
+        <!-- <img src="https://floatui.com/logo.svg" width="150" class="mx-auto" /> -->
+        <div class="mt-5 space-y-2">
+          <h3 class="text-2xl font-bold text-gray-800 sm:text-3xl">Log In</h3>
+        </div>
+      </div>
+
+    <form action="" method="POST" class="mt-8 space-y-3">
+    {% csrf_token %}
+    <input type="text" id="username" name="username" required minlength="4" maxlength="32" class="w-full rounded-lg border bg-transparent px-4 py-2 text-gray-500 shadow-sm outline-none focus:border-blue-600" 
+        placeholder="Username" />
+
+    <input type="password" name="password" required pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$" 
+      title="Password must contain at least 8 characters, including a letter, a number, and a special character (@$!%*#?&)" 
+      class="w-full rounded-lg border bg-transparent px-3 py-2 text-gray-500 shadow-sm outline-none focus:border-blue-600" 
+      placeholder="Password" />
+      
+    <div class="flex flex-row space-x-3">
+        <button type="submit" class="w-1/2 rounded-lg bg-blue-600 px-4 py-2 font-medium text-white duration-150 hover:bg-blue-500 active:bg-blue-600">Submit</button>
+        <button type="reset" class="w-1/2 rounded-lg bg-white border px-4 py-2 font-medium text-gray-600 duration-150 hover:bg-gray-100 active:bg-gray-200">Reset</button>
+    </div>
+      
+    </form>
+        
+        {% if messages %}
+            {% for message in messages %}
+                <div class="mt-4 w-full rounded bg-orange-50 px-4 py-2 font-medium text-gray-600 duration-150">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+
+    </div>
+  </main>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'users/layout.html' %}
+
+{% block content %}
+  <main class="flex h-full w-full flex-col items-center justify-center px-4">
+    <div class="w-full max-w-sm text-gray-600">
+      <div class="text-center">
+        <!-- <img src="https://floatui.com/logo.svg" width="150" class="mx-auto" /> -->
+        <div class="mt-5 space-y-2">
+          <h3 class="text-2xl font-bold text-gray-800 sm:text-3xl">User Data</h3>
+        </div>
+      </div>
+      <form action="#" method="POST" class="mt-8 space-y-3">
+        {% csrf_token %}
+        <input type="text" id="username" name="username" required class="w-full rounded-lg border bg-transparent px-4 py-2 text-gray-500 shadow-sm outline-none focus:border-blue-600" 
+            placeholder="Username" />
+        <input type="password" required class="w-full rounded-lg border bg-transparent px-3 py-2 text-gray-500 shadow-sm outline-none focus:border-blue-600" 
+            placeholder="Password" />
+        <select name="gender" required class="w-full rounded-lg border bg-transparent px-4 py-2 text-gray-500 shadow-sm outline-none focus:border-blue-600">
+            <option value="" disabled selected>Select Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+        </select>
+        <select name="skills" multiple required class="w-full rounded-lg border bg-transparent px-4 py-2 text-gray-500 shadow-sm outline-none focus:border-blue-600">
+            <option value="" disabled>Select Skills :</option>
+            <option value="react">React</option>
+            <option value="javascript">JavaScript</option>
+            <option value="api">API</option>
+            <option value="backend">BackEnd</option>
+        </select>
+  
+        <a href="/home">
+          <button class="mt-5 w-full rounded-lg bg-blue-600 px-4 py-2 font-medium text-white duration-150 hover:bg-blue-500 active:bg-blue-600">Sign Up</button>
+        </a>
+      </form>
+    </div>
+  </main>
+{% endblock %}
